@@ -1,0 +1,18 @@
+{
+    "os": "Windows-10-10.0.19041-SP0",
+    "python": "3.8.8",
+    "heartbeatAt": "2021-05-28T13:19:05.573736",
+    "startedAt": "2021-05-28T13:19:01.935222",
+    "docker": null,
+    "gpu": "GeForce GTX 1660 SUPER",
+    "gpu_count": 1,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": ".\\FL_simulation.py",
+    "codePath": "FL_simulation.py",
+    "host": "DESKTOP-5JLTDK1",
+    "username": "user",
+    "executable": "C:\\Users\\user\\anaconda3\\envs\\tensor\\python.exe"
+}
