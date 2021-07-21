@@ -122,6 +122,7 @@ for round in range(100):  # Communication Round, Global epoch
             model.add(layers.Dense(10, activation='softmax'))
             model.compile(optimizer='SGD',
                           loss='sparse_categorical_crossentropy', metrics=['accuracy'])  # lr = 0.01
+            print(x_train[i].shape)
             learning_result_list.append(model.fit(
                 x_train[i], y_train[i], batch_size=100, epochs=1, validation_data=(x_test[i], y_test[i])))
             tf.keras.backend.clear_session()
