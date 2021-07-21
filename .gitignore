@@ -1,2 +1,8 @@
 .ipynb_checkpoints/
 wandb/
+*.xlsx
+fl_model_gap/
+high_group/
+low_group/
+시뮬레이션 결과 파일/
+*.txt
