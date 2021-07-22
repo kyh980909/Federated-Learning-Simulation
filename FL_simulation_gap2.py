@@ -79,7 +79,7 @@ idx = np.argsort(y_test)
 x_train_sorted = x_test[idx]
 y_train_sorted = y_test[idx]
 
-UE_NUM = 20  # UE 개수
+UE_NUM = 10  # UE 개수
 
 UE = []
 for _ in range(UE_NUM):
@@ -90,7 +90,7 @@ random.seed(45)
 total = 0
 random_num_list = []
 for _ in range(UE_NUM):
-    random_num = random.randrange(1500, 3000)
+    random_num = random.randrange(1000, 12000)
     total += random_num
     random_num_list.append(random_num)
 
