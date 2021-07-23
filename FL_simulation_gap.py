@@ -151,10 +151,10 @@ if __name__ == "__main__":
     df = pd.DataFrame(columns=['High', 'Low', 'High Accuracy', 'High Loss',
                                'Low Accuracy', 'Low Loss', 'High Group', 'Low Group'])  # 시뮬레이션 결과를  저장할 데이터프레임
     simulation_num = 100
-    for i in range(2, simulation_num):
-        # wandb.init(project='Federated Learning',
-        #            name=f'0722 {i+1}', entity='yhkim')
-        save_path = f'simulation_result/{str(i+1)}'
+    for num in range(34, simulation_num):
+        wandb.init(project='Federated Learning',
+                   name=f'Simulation {num+1}', entity='yhkim')
+        save_path = f'simulation_result/{str(num+1)}'
         os.mkdir(save_path)
         # 연합학습 부분
         high_ue_list = []
@@ -355,9 +355,10 @@ if __name__ == "__main__":
             server_model.save(f'{save_path}/low_group')
             low_group_global_loss.append(result[0])
             low_group_global_accuracy.append(result[1])
-        #     wandb.log(
-        #         {'high group global accuracy': high_group_global_accuracy[round], 'high group global loss': high_group_global_loss[round], 'low group global accuracy': low_group_global_accuracy[round], 'low group global loss': low_group_global_loss[round], 'global epoch': round+1})
-        # wandb.finish()
-        df.loc[i] = [len(high_ue_list), len(low_ue_list), high_group_global_accuracy[-1],
-                     high_group_global_loss[-1], low_group_global_accuracy[-1], low_group_global_loss[-1], str(high_ue_list)[1:-1], str(low_ue_list)[1:-1]]
-        df.to_excel('simulation_result.xlsx')
+            wandb.log(
+                {'high group global accuracy': high_group_global_accuracy[round], 'high group global loss': high_group_global_loss[round], 'low group global accuracy': low_group_global_accuracy[round], 'low group global loss': low_group_global_loss[round], 'global epoch': round+1,
+                 'high_ue_list': len(high_ue_list), 'low_ue_list': len(low_ue_list), 'high_ue_group': str(high_ue_list)[1:-1], 'low_ue_group': str(low_ue_list)[1:-1]})
+        wandb.finish()
+        df.loc[num] = [len(high_ue_list), len(low_ue_list), high_group_global_accuracy[-1],
+                       high_group_global_loss[-1], low_group_global_accuracy[-1], low_group_global_loss[-1], str(high_ue_list)[1:-1], str(low_ue_list)[1:-1]]
+        df.to_excel('simulation_result3.xlsx')
